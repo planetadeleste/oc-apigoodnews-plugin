@@ -1,5 +1,5 @@
 {
-    "name": "planetadeleste/oc-api-goodnews",
+    "name": "planetadeleste/oc-api-goodnews-plugin",
     "description": "Extends Lovata.GoodNews plugin to has api functionality",
     "type": "october-plugin",
     "license": "MIT",
