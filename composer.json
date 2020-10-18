@@ -1,0 +1,15 @@
+{
+    "name": "planetadeleste/oc-api-goodnews",
+    "description": "Extends Lovata.GoodNews plugin to has api functionality",
+    "type": "october-plugin",
+    "license": "MIT",
+    "keywords": ["october", "blog", "goodnews", "api"],
+    "authors": [
+        {
+            "name": "Alvaro Canepa",
+            "email": "bfpdevel@gmail.com",
+            "role": "creator"
+        }
+    ],
+    "require": {}
+}
