@@ -7,13 +7,13 @@ use PlanetaDelEste\ApiGoodNews\Classes\Store\BlogCategoryListStore;
 /**
  * Class Categories
  *
- * @package PlanetaDelEste\BuilderPortal\Controllers\Api
+ * @package PlanetaDelEste\ApiGoodNews\Controllers\Api
  */
 class Categories extends Base
 {
     public $sortColumn = BlogCategoryListStore::SORT_CREATED_AT_ASC;
 
-    protected function save()
+    protected function save(): bool
     {
         if (!array_get($this->data, 'slug') && ($sName = array_get($this->data, 'name'))) {
             array_set($this->data, 'slug', str_slug($sName));

@@ -3,13 +3,13 @@
 use PlanetaDelEste\ApiToolbox\Classes\Resource\Base;
 use PlanetaDelEste\ApiShopaholic\Classes\Resource\File\IndexCollection as IndexCollectionImages;
 use PlanetaDelEste\ApiToolbox\Plugin;
-use PlanetaDelEste\BuilderPortal\Classes\Resource\Category\ItemResource as ItemResourceCategory;
+use PlanetaDelEste\ApiGoodNews\Classes\Resource\Category\ItemResource as ItemResourceCategory;
 
 /**
  * Class ItemResource
  *
  * @mixin \Lovata\GoodNews\Classes\Item\ArticleItem
- * @package PlanetaDelEste\BuilderPortal\Classes\Resource\Article
+ * @package PlanetaDelEste\ApiGoodNews\Classes\Resource\Article
  */
 class ItemResource extends Base
 {

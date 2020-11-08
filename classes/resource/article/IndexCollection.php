@@ -5,7 +5,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 /**
  * Class IndexCollection
  *
- * @package PlanetaDelEste\BuilderPortal\Classes\Resource\Article
+ * @package PlanetaDelEste\ApiGoodNews\Classes\Resource\Article
  */
 class IndexCollection extends ResourceCollection
 {

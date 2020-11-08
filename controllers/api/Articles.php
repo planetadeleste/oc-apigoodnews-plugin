@@ -7,13 +7,13 @@ use PlanetaDelEste\ApiToolbox\Classes\Api\Base;
 /**
  * Class Articles
  *
- * @package PlanetaDelEste\BuilderPortal\Controllers\Api
+ * @package PlanetaDelEste\ApiGoodNews\Controllers\Api
  */
 class Articles extends Base
 {
     public $sortColumn = ArticleListStore::SORT_NO;
 
-    protected function save()
+    protected function save(): bool
     {
         if (!array_get($this->data, 'slug') && ($sTitle = array_get($this->data, 'title'))) {
             array_set($this->data, 'slug', str_slug($sTitle));

@@ -9,7 +9,7 @@ use PlanetaDelEste\ApiGoodNews\Classes\Store\BlogCategoryListStore;
 /**
  * Class CategoryModelHandler
  *
- * @package PlanetaDelEste\BuilderPortal\Classes\Event\Category
+ * @package PlanetaDelEste\ApiGoodNews\Classes\Event\Category
  */
 class CategoryModelHandler extends ModelHandler
 {

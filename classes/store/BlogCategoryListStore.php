@@ -6,7 +6,7 @@ use PlanetaDelEste\ApiGoodNews\Classes\Store\BlogCategory\SortingListStore;
 /**
  * Class BlogCategoryListStore
  *
- * @package PlanetaDelEste\BuilderPortal\Classes\Store
+ * @package PlanetaDelEste\ApiGoodNews\Classes\Store
  * @property SortingListStore $sorting
  */
 class BlogCategoryListStore extends AbstractListStore

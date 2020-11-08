@@ -6,7 +6,7 @@ use PlanetaDelEste\ApiToolbox\Plugin;
  * Class ShowResource
  *
  * @mixin \Lovata\GoodNews\Classes\Item\CategoryItem
- * @package PlanetaDelEste\BuilderPortal\Classes\Resource\Category
+ * @package PlanetaDelEste\ApiGoodNews\Classes\Resource\Category
  */
 class ShowResource extends ItemResource
 {

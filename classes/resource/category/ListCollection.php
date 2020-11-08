@@ -3,7 +3,7 @@
 /**
  * Class ListCollection
  *
- * @package PlanetaDelEste\BuilderPortal\Classes\Resource\Category
+ * @package PlanetaDelEste\ApiGoodNews\Classes\Resource\Category
  */
 class ListCollection extends IndexCollection
 {
