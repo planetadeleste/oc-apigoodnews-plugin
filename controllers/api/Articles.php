@@ -1,5 +1,6 @@
 <?php namespace PlanetaDelEste\ApiGoodNews\Controllers\Api;
 
+use Exception;
 use Lovata\GoodNews\Classes\Store\ArticleListStore;
 use Lovata\GoodNews\Models\Article;
 use PlanetaDelEste\ApiToolbox\Classes\Api\Base;
@@ -11,7 +12,7 @@ use PlanetaDelEste\ApiToolbox\Classes\Api\Base;
  */
 class Articles extends Base
 {
-    public $sortColumn = ArticleListStore::SORT_NO;
+    public $sortColumn = ArticleListStore::SORT_PUBLISH_DESC;
 
     protected function save(): bool
     {
@@ -24,6 +25,17 @@ class Articles extends Base
         }
 
         return parent::save();
+    }
+
+    public function getPrimaryKey(): string
+    {
+        try {
+            $obUser = $this->currentUser();
+        } catch (Exception $e) {
+            $obUser = false;
+        }
+
+        return $obUser ? 'id' : 'slug';
     }
 
     public function getModelClass()

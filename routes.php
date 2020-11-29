@@ -1,7 +1,7 @@
 <?php
 Route::prefix('api/v1')
     ->namespace('PlanetaDelEste\ApiGoodNews\Controllers\Api')
-    ->middleware('web')
+    ->middleware('api')
     ->group(
         function () {
             Route::prefix('blog')
