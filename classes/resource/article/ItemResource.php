@@ -34,6 +34,7 @@ class ItemResource extends Base
         return [
             'id',
             'category_id',
+            'status_id',
             'title',
             'slug',
             'preview_text',

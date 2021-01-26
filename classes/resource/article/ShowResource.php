@@ -15,6 +15,7 @@ class ShowResource extends ItemResource
         return [
             'id',
             'category_id',
+            'status_id',
             'category',
             'title',
             'slug',
