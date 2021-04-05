@@ -51,7 +51,7 @@ class CategoryModelHandler extends ModelHandler
             'sort',
             function ($sSort = BlogCategoryListStore::SORT_NO) use ($obCollection): CategoryCollection {
                 $arResultIDList = BlogCategoryListStore::instance()->sorting->get($sSort);
-                return $obCollection->intersect($arResultIDList);
+                return $obCollection->applySorting($arResultIDList);
             }
         );
     }

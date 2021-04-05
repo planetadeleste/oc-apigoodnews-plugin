@@ -2,6 +2,7 @@
 
 use Event;
 use PlanetaDelEste\ApiGoodNews\Classes\Event\ApiShopaholicHandle;
+use PlanetaDelEste\ApiGoodNews\Classes\Event\Article\ArticleModelHandler;
 use PlanetaDelEste\ApiGoodNews\Classes\Event\Category\CategoryModelHandler;
 use System\Classes\PluginBase;
 
@@ -15,5 +16,6 @@ class Plugin extends PluginBase
     {
         Event::subscribe(ApiShopaholicHandle::class);
         Event::subscribe(CategoryModelHandler::class);
+        Event::subscribe(ArticleModelHandler::class);
     }
 }
