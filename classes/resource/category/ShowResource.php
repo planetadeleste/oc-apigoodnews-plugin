@@ -10,7 +10,7 @@ use PlanetaDelEste\ApiToolbox\Plugin;
  */
 class ShowResource extends ItemResource
 {
-    public function getDataKeys()
+    public function getDataKeys(): array
     {
         return [
             'id',
@@ -28,7 +28,7 @@ class ShowResource extends ItemResource
         ];
     }
 
-    protected function getEvent()
+    protected function getEvent(): ?string
     {
         return Plugin::EVENT_SHOWRESOURCE_DATA;
     }
