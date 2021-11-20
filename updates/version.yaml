@@ -1,4 +1,14 @@
-1.0.0:
+v1.0.0:
     - 'Init plugin'
-1.0.1:
+v1.0.1:
     - Add slug filter to ArticleCollection
+v1.0.2:
+    - Add routes to manage registries
+v1.0.2.1:
+    - Add autoload and require
+v1.0.3:
+    - Add slug filter to ArticleCollection
+v1.0.4:
+    - Fix return declaration
+v1.0.5:
+    - Fix getting primary key on frontend

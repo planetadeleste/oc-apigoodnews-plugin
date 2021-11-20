@@ -21,7 +21,7 @@ class Categories extends Base
         return parent::save();
     }
 
-    public function getModelClass()
+    public function getModelClass(): string
     {
         return Category::class;
     }

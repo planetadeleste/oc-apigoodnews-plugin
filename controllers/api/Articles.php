@@ -29,16 +29,10 @@ class Articles extends Base
 
     public function getPrimaryKey(): string
     {
-        try {
-            $obUser = $this->currentUser();
-        } catch (Exception $e) {
-            $obUser = false;
-        }
-
-        return $obUser ? 'id' : 'slug';
+        return $this->isBackend() ? 'id' : 'slug';
     }
 
-    public function getModelClass()
+    public function getModelClass(): string
     {
         return Article::class;
     }
