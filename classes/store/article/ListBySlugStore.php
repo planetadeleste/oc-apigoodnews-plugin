@@ -1,4 +1,6 @@
-<?php namespace PlanetaDelEste\ApiGoodNews\Classes\Store\Article;
+<?php
+
+namespace PlanetaDelEste\ApiGoodNews\Classes\Store\Article;
 
 use Lovata\GoodNews\Models\Article;
 use Lovata\Toolbox\Classes\Store\AbstractStoreWithParam;

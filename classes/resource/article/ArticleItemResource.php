@@ -1,17 +1,19 @@
-<?php namespace PlanetaDelEste\ApiGoodNews\Classes\Resource\Article;
+<?php
 
-use PlanetaDelEste\ApiToolbox\Classes\Resource\Base;
+namespace PlanetaDelEste\ApiGoodNews\Classes\Resource\Article;
+
+use Lovata\GoodNews\Classes\Item\ArticleItem;
+use PlanetaDelEste\ApiGoodNews\Classes\Resource\Category\CategoryItemResource;
 use PlanetaDelEste\ApiShopaholic\Classes\Resource\File\IndexCollection as IndexCollectionImages;
+use PlanetaDelEste\ApiToolbox\Classes\Resource\Base;
 use PlanetaDelEste\ApiToolbox\Plugin;
-use PlanetaDelEste\ApiGoodNews\Classes\Resource\Category\ItemResource as ItemResourceCategory;
 
 /**
  * Class ItemResource
  *
- * @mixin \Lovata\GoodNews\Classes\Item\ArticleItem
- * @package PlanetaDelEste\ApiGoodNews\Classes\Resource\Article
+ * @mixin ArticleItem
  */
-class ItemResource extends Base
+class ArticleItemResource extends Base
 {
     /**
      * @return array|void
@@ -21,7 +23,7 @@ class ItemResource extends Base
         return [
             'preview_image'          => $this->preview_image ? $this->preview_image->getPath() : null,
             'images'                 => IndexCollectionImages::make(collect($this->images)),
-            'category'               => $this->category_id ? ItemResourceCategory::make($this->category) : null,
+            'category'               => $this->category_id ? CategoryItemResource::make($this->category) : null,
             'published_start'        => $this->published_start ? $this->published_start->toDateTimeString() : null,
             'published_start_object' => $this->published_start,
             'published_stop'         => $this->published_stop ? $this->published_stop->toDateTimeString() : null,
@@ -29,6 +31,9 @@ class ItemResource extends Base
         ];
     }
 
+    /**
+     * @return array<string>
+     */
     public function getDataKeys(): array
     {
         return [
@@ -43,6 +48,9 @@ class ItemResource extends Base
         ];
     }
 
+    /**
+     * @return string
+     */
     protected function getEvent(): ?string
     {
         return Plugin::EVENT_ITEMRESOURCE_DATA;

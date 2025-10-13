@@ -1,15 +1,20 @@
-<?php namespace PlanetaDelEste\ApiGoodNews\Classes\Resource\Article;
+<?php
 
+namespace PlanetaDelEste\ApiGoodNews\Classes\Resource\Article;
+
+use Lovata\GoodNews\Classes\Item\ArticleItem;
 use PlanetaDelEste\ApiToolbox\Plugin;
 
 /**
- * Class ShowResource
+ * Class ArticleShowResource
  *
- * @mixin \Lovata\GoodNews\Classes\Item\ArticleItem
- * @package PlanetaDelEste\ApiGoodNews\Classes\Resource\Article
+ * @mixin ArticleItem
  */
-class ShowResource extends ItemResource
+class ArticleShowResource extends ArticleItemResource
 {
+    /**
+     * @return array<string>
+     */
     public function getDataKeys(): array
     {
         return [
@@ -29,9 +34,11 @@ class ShowResource extends ItemResource
         ];
     }
 
+    /**
+     * @return string
+     */
     protected function getEvent(): string
     {
         return Plugin::EVENT_SHOWRESOURCE_DATA;
     }
 }
-
