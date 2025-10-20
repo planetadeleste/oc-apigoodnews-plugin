@@ -1,39 +1,64 @@
-<?php namespace PlanetaDelEste\ApiGoodNews\Controllers\Api;
+<?php
 
-use Exception;
+namespace PlanetaDelEste\ApiGoodNews\Controllers\Api;
+
 use Lovata\GoodNews\Classes\Store\ArticleListStore;
 use Lovata\GoodNews\Models\Article;
+use PlanetaDelEste\ApiGoodNews\Classes\Resource\Article\ArticleIndexCollection;
+use PlanetaDelEste\ApiGoodNews\Classes\Resource\Article\ArticleListCollection;
+use PlanetaDelEste\ApiGoodNews\Classes\Resource\Article\ArticleShowResource;
 use PlanetaDelEste\ApiToolbox\Classes\Api\Base;
 
 /**
  * Class Articles
- *
- * @package PlanetaDelEste\ApiGoodNews\Controllers\Api
  */
 class Articles extends Base
 {
-    public $sortColumn = ArticleListStore::SORT_PUBLISH_DESC;
-
-    protected function save(): bool
-    {
-        if (!array_get($this->data, 'slug') && ($sTitle = array_get($this->data, 'title'))) {
-            array_set($this->data, 'slug', str_slug($sTitle));
-        }
-
-        if (array_has($this->data, 'published_stop') && !array_get($this->data, 'published_stop')) {
-            array_forget($this->data, 'published_stop');
-        }
-
-        return parent::save();
-    }
-
+    /**
+     * @return string
+     */
     public function getPrimaryKey(): string
     {
         return $this->isBackend() ? 'id' : 'slug';
     }
 
+    /**
+     * @return string
+     */
     public function getModelClass(): string
     {
         return Article::class;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSortColumn(): ?string
+    {
+        return ArticleListStore::SORT_PUBLISH_DESC;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShowResource(): ?string
+    {
+        return ArticleShowResource::class;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIndexResource(): ?string
+    {
+        return ArticleIndexCollection::class;
+    }
+
+    /**
+     * @return string
+     */
+    public function getListResource(): ?string
+    {
+        return ArticleListCollection::class;
     }
 }

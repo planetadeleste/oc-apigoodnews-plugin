@@ -1,21 +1,33 @@
-<?php namespace PlanetaDelEste\ApiGoodNews;
+<?php
+
+namespace PlanetaDelEste\ApiGoodNews;
 
 use Event;
 use PlanetaDelEste\ApiGoodNews\Classes\Event\ApiShopaholicHandle;
+use PlanetaDelEste\ApiGoodNews\Classes\Event\Article\ArticleApiControllerHandler;
 use PlanetaDelEste\ApiGoodNews\Classes\Event\Article\ArticleModelHandler;
+use PlanetaDelEste\ApiGoodNews\Classes\Event\Category\CategoryApiControllerHandler;
 use PlanetaDelEste\ApiGoodNews\Classes\Event\Category\CategoryModelHandler;
 use System\Classes\PluginBase;
 
 /**
  * Class Plugin
- * @package PlanetaDelEste\ApiGoodNews
  */
 class Plugin extends PluginBase
 {
-    public function boot()
+    /**
+     * @return void
+     */
+    public function boot(): void
     {
-        Event::subscribe(ApiShopaholicHandle::class);
-        Event::subscribe(CategoryModelHandler::class);
-        Event::subscribe(ArticleModelHandler::class);
+        $arEvents = [
+            ApiShopaholicHandle::class,
+            CategoryModelHandler::class,
+            CategoryApiControllerHandler::class,
+            ArticleModelHandler::class,
+            ArticleApiControllerHandler::class,
+        ];
+
+        array_walk($arEvents, [Event::class, 'subscribe']);
     }
 }
