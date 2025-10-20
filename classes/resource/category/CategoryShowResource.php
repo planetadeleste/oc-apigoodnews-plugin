@@ -1,15 +1,20 @@
-<?php namespace PlanetaDelEste\ApiGoodNews\Classes\Resource\Category;
+<?php
 
+namespace PlanetaDelEste\ApiGoodNews\Classes\Resource\Category;
+
+use Lovata\GoodNews\Classes\Item\CategoryItem;
 use PlanetaDelEste\ApiToolbox\Plugin;
 
 /**
- * Class ShowResource
+ * Class CategoryShowResource
  *
- * @mixin \Lovata\GoodNews\Classes\Item\CategoryItem
- * @package PlanetaDelEste\ApiGoodNews\Classes\Resource\Category
+ * @mixin CategoryItem
  */
-class ShowResource extends ItemResource
+class CategoryShowResource extends CategoryItemResource
 {
+    /**
+     * @return array<string>
+     */
     public function getDataKeys(): array
     {
         return [
@@ -23,14 +28,17 @@ class ShowResource extends ItemResource
             'nest_depth',
             'parent_id',
             'parent',
+            'children',
             'preview_image',
             'images'
         ];
     }
 
+    /**
+     * @return string
+     */
     protected function getEvent(): ?string
     {
         return Plugin::EVENT_SHOWRESOURCE_DATA;
     }
 }
-

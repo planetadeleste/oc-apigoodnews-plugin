@@ -1,4 +1,6 @@
-<?php namespace PlanetaDelEste\ApiGoodNews\Classes\Event;
+<?php
+
+namespace PlanetaDelEste\ApiGoodNews\Classes\Event;
 
 use Lovata\GoodNews\Classes\Collection\ArticleCollection;
 use Lovata\GoodNews\Classes\Collection\CategoryCollection;
@@ -12,7 +14,7 @@ class ApiShopaholicHandle
     /**
      * @param Dispatcher $obEvent
      */
-    public function subscribe(Dispatcher $obEvent)
+    public function subscribe(Dispatcher $obEvent): void
     {
         $obEvent->listen(
             Plugin::EVENT_API_ADD_COLLECTION,
@@ -22,6 +24,9 @@ class ApiShopaholicHandle
         );
     }
 
+    /**
+     * @return array<string>
+     */
     protected function addCollections(): array
     {
         return [

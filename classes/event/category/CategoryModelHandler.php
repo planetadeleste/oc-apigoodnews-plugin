@@ -1,4 +1,6 @@
-<?php namespace PlanetaDelEste\ApiGoodNews\Classes\Event\Category;
+<?php
+
+namespace PlanetaDelEste\ApiGoodNews\Classes\Event\Category;
 
 use Lovata\GoodNews\Classes\Collection\CategoryCollection;
 use Lovata\GoodNews\Classes\Item\CategoryItem;
@@ -8,49 +10,54 @@ use PlanetaDelEste\ApiGoodNews\Classes\Store\BlogCategoryListStore;
 
 /**
  * Class CategoryModelHandler
- *
- * @package PlanetaDelEste\ApiGoodNews\Classes\Event\Category
  */
 class CategoryModelHandler extends ModelHandler
 {
-    /** @var Category */
+    /**
+     * @var Category
+     */
     protected $obElement;
 
-    public function subscribe($obEvent)
+    /**
+     * @param mixed $obEvent
+     *
+     * @return void
+     */
+    public function subscribe($obEvent): void
     {
         parent::subscribe($obEvent);
 
         Category::extend(
-            function ($obModel) {
+            function ($obModel): void {
                 $this->extendModel($obModel);
             }
         );
 
         CategoryCollection::extend(
-            function ($obCollection) {
+            function ($obCollection): void {
                 $this->extendCollection($obCollection);
             }
         );
     }
 
     /**
-     * @param \Lovata\Shopaholic\Models\Category $obModel
+     * @param Category $obModel
      */
-    protected function extendModel($obModel)
+    protected function extendModel(Category $obModel): void
     {
         $obModel->addCachedField(['active']);
     }
 
-
     /**
      * @param CategoryCollection $obCollection
      */
-    protected function extendCollection($obCollection)
+    protected function extendCollection(CategoryCollection $obCollection): void
     {
         $obCollection->addDynamicMethod(
             'sort',
-            function ($sSort = BlogCategoryListStore::SORT_NO) use ($obCollection): CategoryCollection {
+            static function ($sSort = BlogCategoryListStore::SORT_NO) use ($obCollection): CategoryCollection {
                 $arResultIDList = BlogCategoryListStore::instance()->sorting->get($sSort);
+
                 return $obCollection->applySorting($arResultIDList);
             }
         );
@@ -61,7 +68,7 @@ class CategoryModelHandler extends ModelHandler
      *
      * @return string
      */
-    protected function getModelClass()
+    protected function getModelClass(): string
     {
         return Category::class;
     }
@@ -71,7 +78,7 @@ class CategoryModelHandler extends ModelHandler
      *
      * @return string
      */
-    protected function getItemClass()
+    protected function getItemClass(): string
     {
         return CategoryItem::class;
     }

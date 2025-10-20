@@ -12,3 +12,8 @@ v1.0.4:
     - Fix return declaration
 v1.0.5:
     - Fix getting primary key on frontend
+v2.0.0:
+    - Refactor and improve plugin structure.
+    - Add new controllers and resources for articles and categories, optimize methods, and remove obsolete classes. Update composer.json dependencies.
+v2.0.1:
+    - 'Reorganizar la clase Articles: se eliminó la propiedad sortColumn y se añadieron métodos para obtener recursos de índice, lista y mostrar.'

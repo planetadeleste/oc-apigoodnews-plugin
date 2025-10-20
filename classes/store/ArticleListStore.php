@@ -1,4 +1,6 @@
-<?php namespace PlanetaDelEste\ApiGoodNews\Classes\Store;
+<?php
+
+namespace PlanetaDelEste\ApiGoodNews\Classes\Store;
 
 use Lovata\Toolbox\Classes\Store\AbstractListStore;
 use PlanetaDelEste\ApiGoodNews\Classes\Store\Article\ListBySlugStore;
@@ -14,7 +16,7 @@ class ArticleListStore extends AbstractListStore
 {
     protected static $instance;
 
-    protected function init()
+    protected function init(): void
     {
         $this->addToStoreList('slug', ListBySlugStore::class);
     }
